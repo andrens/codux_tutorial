@@ -2,7 +2,9 @@
   "$schema": "https://wixplosives.github.io/codux-config-schema/codux.config.schema.json",
   "boardGlobalSetup": "./src/_codux/boards-global-setup.ts",
   "componentsDiscovery": {
-    "include": ["src/components/**"],
+    "include": [
+      "src/components/**"
+    ],
     "exclude": [
       "src/_codux/component-templates/**",
       "src/components/common/**",
@@ -23,11 +25,18 @@
       "title": "Install",
       "description": "Run install",
       "command": "npm i",
-      "trigger": ["checkout", "pull", "setup"]
+      "trigger": [
+        "checkout",
+        "pull",
+        "setup"
+      ]
     }
   },
   "styling": {
     "solution": "scss modules"
   },
-  "svgLoader": "svgr"
+  "svgLoader": "svgr",
+  "addPanel": {
+    "assets": []
+  }
 }

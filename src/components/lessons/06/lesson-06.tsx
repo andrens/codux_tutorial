@@ -4,6 +4,7 @@ import { ConfettiFx } from '../../fx/confetti-fx/confetti-fx';
 import { useRequestAnimationFrame } from '../../hooks';
 import { Task06 as Task } from '../../tasks/06/task-06';
 import styles from './lesson-06.module.scss';
+import classNames from 'classnames';
 
 export const Lesson06 = () => {
     const [lessonSolved, setLessonSolved] = useState(false);
@@ -15,9 +16,9 @@ export const Lesson06 = () => {
     useRequestAnimationFrame(checkSolution);
 
     return (
-        <div className={styles.root}>
+        <div className={classNames(styles.root, styles['new-class'])}>
             <Task />
-            <div className={`${styles.playground}`} id="playground">
+            <div className={classNames(styles.playground, styles['new-class'])} id="playground">
                 <div className={styles.quote}>
                     “Creativity is <span>nothing but a mind set</span> free.”
                 </div>
@@ -36,7 +37,7 @@ export const Lesson06 = () => {
 function isSolved(): boolean {
     const elem = document.getElementById('playground');
     const stageBgColor = rgba2hex(
-        getComputedStyle(elem!).getPropertyValue('background-color')
+        getComputedStyle(elem!).getPropertyValue('background-color'),
     ).toUpperCase();
     const desiredColor = vars.charcoalBlack!.toUpperCase();
     return stageBgColor === desiredColor;
